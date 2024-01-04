@@ -1,10 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App'
 import './styles.css'
 
-const root = document.getElementById('app')
+window.addEventListener('load', () => {
+    const rootElement = document.createElement('div')
+    rootElement.id = 'root'
+    document.body.appendChild(rootElement)
 
-// Utilizando ReactDOM.createRoot
-const reactRoot = ReactDOM.createRoot(root)
-reactRoot.render(<App />)
+    ReactDOM.createRoot(rootElement).render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    )
+})
